@@ -1,0 +1,69 @@
+<div class="row">
+    <div class="col-md-4">
+
+        <form #pacienteForm="ngForm" (ngSubmit)="createPaciente(pacienteForm)">
+            <fieldset>
+                <legend>REGISTRO PACIENTES</legend>
+
+                <input type="hidden" name="_id" [(ngModel)]="pacienteService.selectedPaciente._id">
+
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control-plaintext" id="mrn" name="mrn" placeholder="MRN" [(ngModel)]="pacienteService.selectedPaciente.mrn">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control-plaintext" id="nombre" name="nombre" placeholder="Nombre completo" [(ngModel)]="pacienteService.selectedPaciente.nombre">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control-plaintext" id="edad" name="edad" placeholder="Edad" [(ngModel)]="pacienteService.selectedPaciente.edad">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control-plaintext" id="direccion" name="direccion" placeholder="Direccion" [(ngModel)]="pacienteService.selectedPaciente.direccion">
+                    </div>
+                </div>
+            </fieldset>
+
+            <button class="btn btn-primary m-2" type="" (click)="resetForm(pacienteForm)">Clean</button>
+            <button class="btn btn-secondary" type="submit">Guardar</button>
+        </form>
+
+    </div>
+    <div class="col-md-8 ">
+        <table class="table table-striped ">
+            <thead>
+                <tr>
+                    <th>MRN</th>
+                    <th>Nombre</th>
+                    <th>Edad</th>
+                    <th>Direccion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let paciente of pacienteService.pacientes ">
+                    <td>{{ paciente.mrn }}</td>
+                    <td>{{ paciente.nombre }}</td>
+                    <td>{{ paciente.edad }}</td>
+                    <td>{{ paciente.direccion }}</td>
+                    <td>
+                        <button class='btn btn-secondary btn-sm' (click)="editPaciente(paciente)">
+                            <i class="material-icons ">edit</i>
+                        </button>
+                        <button class='btn btn-danger btn-sm' (click)="deletePaciente(paciente)">
+                            <i class="material-icons ">delete</i>
+                        </button>
+
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+###
+GET http://localhost:4000/api/pacientes
+
+###
+POST  http://localhost:4000/api/pacientes
+content-Type: application/json
+
+{
+    "mrn": 6789,
+    "nombre": "Edgar",
+    "edad": 31,
+    "direccion" : "asldkjasdl"
+
+}
+
+### 
+GET http://localhost:4000/api/pacientes/61154a82e8f0ed8298d2f98b
+
+### 
+DELETE http://localhost:4000/api/pacientes/6115498e7dd480702472d8d3
+
+### 
+PUT http://localhost:4000/api/pacientes/61154a82e8f0ed8298d2f98b
+content-Type: application/json
+
+{
+    "mrn": 6789,
+    "nombre": "Edgar",
+    "edad": 32,
+    "direccion" : "asldkjasdl"
+
+}
